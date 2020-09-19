@@ -43,20 +43,19 @@ char* word_terminator(char *word)
 // the number of words in s
 
 int count_words(char *s)
-{
+{ 
   int count = 0;
-  int i = 0;
-  int start = 0; 
-  while (s[i] != EOF){
-    if (word_start(s+i))
-      {
-      start = 1; }
-    if (word_terminator(s+i) && start ==1){
-      count++; 
-      start = 0; 
-    }
-    i++; 
-  }
+  char* ps = s;
+  
+  while (*ps != '\0'){
+    // assign ps to the returned pointer to the beg of a word
+    ps = word_start(ps);
+    // assign ps to the retuned pointer to the end of a word
+    ps = word_terminator(ps);
+    // this means we increment count
+    count++;
+    } 
+ 
   return count; 
 
 }

@@ -11,11 +11,8 @@ int main()
   char *pstr1 = str1;
 
   printf("%d\n", space_char(str1[0]));
-  printf("%d\n",non_space_char(str1[0]));
-
-  printf("%p\n",word_start(str1));  
-  printf("%p\n", word_terminator(str1)); 
-  // printf("%d\n", count_words(pstr1)); 
+  printf("%d\n",non_space_char(str1[0])); 
+  printf("%d\n", count_words(pstr1)); 
   
   return 0;
 }
