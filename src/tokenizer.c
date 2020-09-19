@@ -30,7 +30,7 @@ char *word_start(char *str)
 
 
 // * to char after end of word
-char* word_terminator(char *word)
+char *word_terminator(char *word)
 {
   int i = 0;
   while (non_space_char(word[i])){
@@ -77,3 +77,34 @@ char *copy_str(char *inStr, short len)
   s[i] = '\0';
   return s; 
 }
+
+// return a freshly allocated zero-terminated vector of
+// freshly allocated space-separated tokensfrom zero-terminated str.
+// ex tokens[0] = "hello"
+
+char **tokenize(char *str)
+{
+  int size = count_words(str)+1; 
+  char **pToken = (char**) malloc(sizeof(char*) * size);
+  int i = 0;
+  char *word = str; 
+  while (i< count_words(str)){
+
+    // this will save the whole word into pToken[i]
+    // the length is merely where the pointer is minues the last pointer (adresses)
+    pToken[i] = copy_str(word, word_terminator(word)-word_start(word));
+    // set the pointer back to the new starting word and make sure the 
+    word = word_start(word);
+    word = word_terminator(word);
+    word = word_start(word);
+    i++;
+  }
+  pToken[i] = '\0'; 
+  return pToken;  
+}
+
+
+
+
+
+
