@@ -1,16 +1,21 @@
 #include "tokenizer.h"
 #include <stdio.h>
+#include <stdlib.h>
 int main()
 {
- printf("Hello please enter your sentece: ");
-  char str1[1000];
-  scanf("%[^\n]", str1); 
+ printf("Hello please enter your sentence: ");
+  char str1[50];
+  scanf("%[^\n]", str1,50); 
   printf("%s\n", str1);
 
-  char *pstr1 = str1; 
+  char *pstr1 = str1;
 
   printf("%d\n", space_char(str1[0]));
-  printf("%d\n",non_space_char(str1[0]));;
-  printf("%c\n", word_start(pstr1));
+  printf("%d\n",non_space_char(str1[0]));
+
+  printf("%p\n",word_start(str1));  
+  printf("%p\n", word_terminator(str1)); 
+  // printf("%d\n", count_words(pstr1)); 
+  
   return 0;
 }
