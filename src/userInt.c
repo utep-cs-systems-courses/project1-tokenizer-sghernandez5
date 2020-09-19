@@ -12,7 +12,10 @@ int main()
 
   printf("%d\n", space_char(str1[0]));
   printf("%d\n",non_space_char(str1[0])); 
-  printf("%d\n", count_words(pstr1)); 
+  printf("%d\n", count_words(pstr1));
+
+  char *ptoS = copy_str(pstr1, 5);
+  printf("%s\n", ptoS); 
   
   return 0;
 }

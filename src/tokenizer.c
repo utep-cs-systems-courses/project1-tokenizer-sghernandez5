@@ -60,3 +60,20 @@ int count_words(char *s)
 
 }
 
+// returns a freshly allocated new zero-terminated string containing <len> chars from <inStr>
+
+char *copy_str(char *inStr, short len)
+{
+  // allocate size, for the string char is of 1 byte
+  // len+1 ( including '\0') 
+  char *s =  (char*) malloc(sizeof(char)* (len+1));
+  // error of memory allocation
+  if (s == NULL) printf("ERROR");
+  int i =0;
+  for (i=0; i < len; i++){
+    s[i] = inStr[i]; 
+  }
+  // to add '\0' at the end 
+  s[i] = '\0';
+  return s; 
+}
