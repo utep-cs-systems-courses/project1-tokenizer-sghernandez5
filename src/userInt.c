@@ -15,11 +15,7 @@ int main()
   printf("%d\n", count_words(pstr1));
 
   char *ptoS = copy_str(pstr1, 5);
-  // printf("%s\n", ptoS);
-  char **tokens = tokenize(pstr1); 
-  printf("%s\n",tokens[0]);
-  printf("%s\n", tokens[1]); 
-  printf("%s\n",tokens[2]);
-  printf("%c\n", tokens[3]); 
+  // printf("%s\n", ptoS); 
+  print_tokens(tokenize(pstr1)); 
   return 0;
 }

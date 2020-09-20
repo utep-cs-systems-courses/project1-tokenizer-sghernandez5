@@ -91,9 +91,11 @@ char **tokenize(char *str)
   while (i< count_words(str)){
 
     // this will save the whole word into pToken[i]
-    // the length is merely where the pointer is minues the last pointer (adresses)
+    // the length is merely where the pointer of where the word ends
+    // minus the start pointer 
     pToken[i] = copy_str(word, word_terminator(word)-word_start(word));
-    // set the pointer back to the new starting word and make sure the 
+    // set the pointer back to the next start of the word, so go through the word
+    // that we just added and (word_start & word_term) and then to the next char of (word_start)
     word = word_start(word);
     word = word_terminator(word);
     word = word_start(word);
@@ -103,7 +105,15 @@ char **tokenize(char *str)
   return pToken;  
 }
 
-
+void print_tokens(char **tokens){
+  int i = 0;
+  // while tokens[i] is valid and not 0 or \0
+  // i can print the values 
+  while(tokens[i]){
+    printf("%s\n", tokens[i]); 
+    i++;
+  }
+}
 
 
 
