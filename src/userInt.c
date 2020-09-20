@@ -1,6 +1,8 @@
 #include "tokenizer.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "history.h"
+
 int main()
 {
  printf("Hello please enter your sentence: ");
