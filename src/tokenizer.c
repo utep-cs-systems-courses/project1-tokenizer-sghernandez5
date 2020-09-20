@@ -105,7 +105,8 @@ char **tokenize(char *str)
   return pToken;  
 }
 
-void print_tokens(char **tokens){
+void print_tokens(char **tokens)
+{
   int i = 0;
   // while tokens[i] is valid and not 0 or \0
   // i can print the values 
@@ -113,6 +114,18 @@ void print_tokens(char **tokens){
     printf("%s\n", tokens[i]); 
     i++;
   }
+}
+
+
+void free_tokens(char **tokens)
+{
+  int i = 0;
+  for(i=0; tokens[i] != NULL; i++){
+    free(tokens[i]);
+    tokens[i] = NULL; 
+  }
+  free(tokens);
+  tokens = NULL; 
 }
 
 

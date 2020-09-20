@@ -14,8 +14,12 @@ int main()
   printf("%d\n",non_space_char(str1[0])); 
   printf("%d\n", count_words(pstr1));
 
-  char *ptoS = copy_str(pstr1, 5);
-  // printf("%s\n", ptoS); 
-  print_tokens(tokenize(pstr1)); 
+  char **Tokensr = tokenize(pstr1);
+  
+  print_tokens(Tokensr);
+
+  free_tokens(Tokensr);
+  
+  print_tokens(Tokensr); 
   return 0;
 }
