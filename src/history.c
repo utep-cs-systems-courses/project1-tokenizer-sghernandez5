@@ -51,7 +51,6 @@ void add_history(List *list, char *str)
     dupString[j] = str[j]; 
   }
   dupString[j] = '\0';
-  printf("MARK : %s\n",dupString);
   // set  tthe string  "attribute" into the node
   node->str = dupString;
   }
@@ -79,17 +78,22 @@ void print_history(List *list){
     temp = temp ->next; 
 
   }
-
-
-
 }
 
-
-
-
-
-
-
+void free_history(List *list)
+{  
+  Item *temp = list-> root;
+  Item *prev = list->root;
+  while (temp != 0){
+    prev = temp; 
+    free(prev->str);
+    free(prev); 
+    temp = temp-> next; 
+  }
+  free(list->root); 
+  free(list);
+}
+/*
 int  main(){
   List *list1 = init_history();
   char *str1 = "epic rap battle";
@@ -98,6 +102,11 @@ int  main(){
   add_history(list1,str1);
   add_history(list1, str2);
   add_history(list1, str3); 
+  print_history(list1);
+
+  free_history(list1);
+
   print_history(list1); 
   return 0; 
 }
+*/
