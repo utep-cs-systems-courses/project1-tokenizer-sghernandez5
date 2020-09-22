@@ -3,11 +3,12 @@
 
 //true if c is a tab or space, and not zero
 int space_char(char c)
- {
+{
   if ( c == ' ' || c == '\t' || c == '\0')
     return 1;
   else
-    return 0; }
+    return 0;
+}
 
 // true if c is not a tab or space, and not zero
 int non_space_char(char c)
@@ -37,8 +38,6 @@ char *word_terminator(char *word)
       i++; 
     }
     return word+i; 
-
-
 }
 // the number of words in s
 

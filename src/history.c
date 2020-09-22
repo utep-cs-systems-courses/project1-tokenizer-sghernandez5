@@ -48,9 +48,9 @@ void add_history(List *list, char *str)
   // allocate memory fo the dupstring, size+1 for the end of file 
   char *dupString = (char*) malloc(sizeof(char)*(size+1));
   for(j=0; j < size; j++){
-    dupString[j] = str[j]; 
-  }
-  dupString[j] = '\0';
+  dupString[j] = str[j]; 
+  } 
+  dupString[size+1] = '\0';
   // set  tthe string  "attribute" into the node
   node->str = dupString;
   }
@@ -60,23 +60,23 @@ void add_history(List *list, char *str)
 char *get_history(List *list, int id)
 {
   Item  *temp = list->root;
-  while(temp->next != 0)
-  {
-    if (temp->id == id){return temp->str;} 
+  while(temp != 0){
+    if (temp->id == id){
+      return temp->str;
+    }
     temp = temp -> next; 
-
   }
-
+  return "ID not in history";  
 }
 
 
-void print_history(List *list){
+void print_history(List *list)
+{
   Item *temp = list->root;
   while(temp != 0){
     printf("%d\n", temp->id);
     printf(" %s\n", temp->str); 
     temp = temp ->next; 
-
   }
 }
 
