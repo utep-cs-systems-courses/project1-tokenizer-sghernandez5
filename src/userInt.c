@@ -30,16 +30,19 @@ int main()
       printf("$"); 
       char newString[80];
       fgets(newString,80,stdin);
-      char *pString = newString; 
+      char *pString = newString;
+      printf("Tokens are tokenized :)\n"); 
       char **Tokensr = tokenize(pString);
+      // free tokens bc funsies :)
+      free(Tokensr); 
       add_history(history, pString);
     }
     else if (choice[0] == '3'){
       break; 
     }
   }
-
-  get_history(history, 2); 
+  // free history bc we dynamically allocated memory
+  free(history); 
   
   return 0;
 }
